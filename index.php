@@ -9,18 +9,18 @@ $config = require("config.php");
 $query = "SELECT * FROM posts";
 $params = [];
 if (isset($_GET["id"]) && $_GET["id"] != "") {
-  $id = $_GET["id"];
+  $id = trim($_GET["id"]);
   $query = $query . " WHERE id=:id";
   $params = [":id" => $id];
 }
-if (isset($_GET["name"]) && $_GET["name"] != "") {
-  $name = $_GET["name"];
-  $query = $query . " JOIN categories ON posts.category_id = categories.id WHERE NAME =:name";
-  $params = [":name" => $name];
+if (isset($_GET["category"]) && $_GET["category"] != "") {
+  $category = trim($_GET["category"]);
+  $query = $query . " JOIN categories ON posts.category_id = categories.id WHERE name =:category";
+  $params = [":category" => $category];
 }
 echo "<form>";
-echo "<input name='name'/>";
-echo "<button>Submit name</button>";
+echo "<input name='category' value='" . ($_GET["category"] ?? '') . "'/>";
+echo "<button>Filter by category</button>";
 echo "</form>";
 
 
@@ -31,9 +31,10 @@ $posts = $db
 
 
 echo "<form>";
-echo "<input name='id'/>";
-echo "<button>Submit id</button>";
+echo "<input name='id' value='" . ($_GET["id"] ?? '') . "'/>";
+echo "<button>Filter by ID</button>";
 echo "</form>";
+
 
 echo "<h1>Posts</h1>";
 
