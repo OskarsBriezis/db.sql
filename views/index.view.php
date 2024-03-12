@@ -1,4 +1,5 @@
-<form>
+<?php require "components/head.php" ?>
+<?php require "components/navbar.php" ?>
 <input name='category' value='<?= ($_GET["category"] ?? '') ?>'/>
 <button>Filter by category</button>
 </form>
@@ -15,3 +16,6 @@
   <li> <?= $post["title"]?> </li>
 <?php } ?>
 </ul>
+
+<?php require "components/footer.php" ?>
+
