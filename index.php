@@ -1,29 +1,15 @@
 <?php
-// Šis fails ir, lai izvadītu datus no datubāzes uz
-// lapu 
 require "functions.php";
-require "Database.php";
 
+$url_array = parse_url($_SERVER["REQUEST_URI"]);
+$url = $url_array["path"];
 
-$config = require("config.php");
-
-$query = "SELECT * FROM posts";
-$params = [];
-if (isset($_GET["id"]) && $_GET["id"] != "") {
-  $id = trim($_GET["id"]);
-  $query = $query . " WHERE id=:id";
-  $params = [":id" => $id];
+if ($url == "/about") {
+    require "controllers/about.php";
 }
-if (isset($_GET["category"]) && $_GET["category"] != "") {
-  $category = trim($_GET["category"]);
-  $query = $query . " JOIN categories ON posts.category_id = categories.id WHERE name =:category";
-  $params = [":category" => $category];
+if ($url == "/") {
+    require "controllers/index.php";
 }
-
-$db = new Database($config);
-$posts = $db
-          ->execute($query, $params)
-          ->fetchAll();
-
-$title = "Posts 💖";
-require "views/index.view.php";
+if ($url == "/story") {
+    require "controllers/story.php";
+}
