@@ -1,5 +1,7 @@
 <?php require "components/head.php" ?>
 <?php require "components/navbar.php" ?>
+
+<form>
 <input name='category' value='<?= ($_GET["category"] ?? '') ?>'/>
 <button>Filter by category</button>
 </form>
