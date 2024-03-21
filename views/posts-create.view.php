@@ -3,12 +3,12 @@
 
 <h1>Create</h1>
 
-<form>
+<form method="POST">
     <label>Title:
-        <input name="snowy"/>
+        <input name="title"/>
     </label>
-    <label>category_id:
-        <input id="flowy"/>
+    <label>category id:
+        <input name="category-id"/>
     </label>
     <button>Save</button>
 </form>
