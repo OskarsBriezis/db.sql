@@ -1,4 +1,4 @@
-USE blog_IPb22;
+USE blog_briezis;
 
 DROP TABLE posts;
 DROP TABLE categories;
