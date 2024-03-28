@@ -35,5 +35,5 @@ $db = new Database($config);
 }
 
 $title = "Create a Post";
-require "views/posts-create.view.php";
+require "views/posts/create.view.php";
 

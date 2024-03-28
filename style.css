@@ -10,6 +10,8 @@ ul {
 body {
   padding-top: 60px;
   padding-left: 20px;
+  background-color: yellowgreen;
+  background-color: hsla(5, 70, 20, alpha);
 }
 
 header {
@@ -44,4 +46,12 @@ label {
   color: red;
   font-size: 0.8em;
   
+}
+
+.delete-form {
+  display: inline-block;
+}
+
+.bt {
+  color: tomato;
 }
